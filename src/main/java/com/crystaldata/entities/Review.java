@@ -2,10 +2,18 @@ package com.crystaldata.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+//@Entity
+//@Table(name = "tb_reviews")
 public class Review implements Serializable {
     private static final long serialVersionUID = 1L;
 	
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	private String text;
 	
 	private User user;

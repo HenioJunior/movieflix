@@ -1,16 +1,24 @@
 package com.crystaldata.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_genre")
 public class Genre implements Serializable {
     private static final long serialVersionUID = 1L;
 	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	private String name;
 	
-	private List<Movie> movies = new ArrayList<>();
+	//Set<Movie> movies = new HashSet<>();
 	
 	public Genre() {
 	}
@@ -36,9 +44,9 @@ public class Genre implements Serializable {
 		this.name = name;
 	}
 	
-	public List<Movie> getMovies() {
+	/*public Set<Movie> getMovies() {
 		return movies;
-	}
+	}*/
 
 	@Override
 	public int hashCode() {

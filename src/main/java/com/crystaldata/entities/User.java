@@ -4,17 +4,25 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+//@Entity
+//@Table(name = "tb_users")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 	
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	private String name;
 	private String email;
 	private String password;
 	
 	private Set<Role> roles = new HashSet<>();
 	private Set<Review> reviews = new HashSet<>();
+	
 	public User() {
 	}
 

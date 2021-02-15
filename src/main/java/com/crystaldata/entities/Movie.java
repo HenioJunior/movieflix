@@ -4,10 +4,18 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+//@Entity
+//@Table(name = "tb_movies")
 public class Movie implements Serializable {
     private static final long serialVersionUID = 1L;
 	
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	private String title;
 	private String subTitle;
 	private Integer year;
@@ -15,7 +23,7 @@ public class Movie implements Serializable {
 	private String synopsis;
 	private Genre genre;
 	
-	private Set<Review> reviews = new HashSet<>();
+	Set<Review> reviews = new HashSet<>();
 
 	public Movie() {
 	}
