@@ -1,6 +1,5 @@
-package com.crystaldata.services;
+package com.crystaldata.movieflix.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.crystaldata.dto.GenreDTO;
-import com.crystaldata.entities.Genre;
-import com.crystaldata.repositories.GenreRepository;
+import com.crystaldata.movieflix.dto.GenreDTO;
+import com.crystaldata.movieflix.entities.Genre;
+import com.crystaldata.movieflix.repositories.GenreRepository;
 
 @Service
 public class GenreService {

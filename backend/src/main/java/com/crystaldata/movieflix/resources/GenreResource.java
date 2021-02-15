@@ -1,4 +1,4 @@
-package com.crystaldata.resources;
+package com.crystaldata.movieflix.resources;
 
 import java.util.List;
 
@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crystaldata.dto.GenreDTO;
-import com.crystaldata.entities.Genre;
-import com.crystaldata.services.GenreService;
+import com.crystaldata.movieflix.dto.GenreDTO;
+import com.crystaldata.movieflix.services.GenreService;
 
 @RestController
 @RequestMapping(value = "/genres")

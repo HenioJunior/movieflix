@@ -1,4 +1,4 @@
-package com.crystaldata.entities;
+package com.crystaldata.movieflix.entities;
 
 import java.io.Serializable;
 import java.util.HashSet;

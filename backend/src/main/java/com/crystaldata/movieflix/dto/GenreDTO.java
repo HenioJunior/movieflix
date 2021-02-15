@@ -1,8 +1,8 @@
-package com.crystaldata.dto;
+package com.crystaldata.movieflix.dto;
 
 import java.io.Serializable;
 
-import com.crystaldata.entities.Genre;
+import com.crystaldata.movieflix.entities.Genre;
 
 public class GenreDTO implements Serializable {
     private static final long serialVersionUID = 1L;
