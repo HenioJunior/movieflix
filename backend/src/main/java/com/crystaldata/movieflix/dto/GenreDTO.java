@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.crystaldata.movieflix.entities.Genre;
 
-public class GenreDTO implements Serializable {
+public class GenreDTO  implements Serializable {
     private static final long serialVersionUID = 1L;
 	
 	private Long id;
@@ -12,15 +12,15 @@ public class GenreDTO implements Serializable {
 	
 	public GenreDTO() {
 	}
-	
-	public GenreDTO(Genre entity) {
-		this.id = entity.getId();
-		this.name = entity.getName();
-	}
 
 	public GenreDTO(Long id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+	
+	public GenreDTO(Genre entity) {
+		id = entity.getId();
+		name = entity.getName();
 	}
 
 	public Long getId() {
