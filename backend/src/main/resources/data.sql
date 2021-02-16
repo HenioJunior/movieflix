@@ -1,3 +1,13 @@
+INSERT INTO tb_role (authority) VALUES ('ROLE_VISITOR');
+INSERT INTO tb_role (authority) VALUES ('ROLE_MEMBER');
+
+INSERT INTO tb_user (name, email, password) VALUES ('Bob', 'bob@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user (name, email, password) VALUES ('Ana', 'ana@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+
+
 INSERT INTO tb_genre (name) VALUES ('Action');
 INSERT INTO tb_genre (name) VALUES ('Comedy');
 INSERT INTO tb_genre (name) VALUES ('Drama');
@@ -15,12 +25,18 @@ INSERT INTO tb_movie (title, sub_title, year, img_Url, synopsis, genre_id) VALUE
 INSERT INTO tb_movie (title, sub_title, year, img_Url, synopsis, genre_id) VALUES ('Violação', 'Nas profundezas do espaço, eles não estão sozinhos.', 2020, 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/JmtaGCYsTv484MByG2AqmVqNcf.jpg', 'À beira da paternidade, um mecânico júnior a bordo de uma arca interestelar para a Nova Terra deve superar um terror cósmico malévolo com a intenção de usar a nave espacial como uma arma.', 1);
 INSERT INTO tb_movie (title, sub_title, year, img_Url, synopsis, genre_id) VALUES ('Os Croods 2', 'A sobrevivência que lute.', 2020, 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vRTScutueW9gLF3dSo2Za7o0v7n.jpg', 'Os Croods 2: Uma Nova Era é uma aventura sobre uma família pré-histórica que descobre as transformações no mundo enquanto tenta permanecer unida.', 2);
 
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Vale a pena ver a trilogia',1,1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Já é um clássico. Ansioso pelo 4',1,2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Foi um dos melhores filmes que eu já vi',3,1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Razoavel',5,1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('A historia é interessante',6,2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Curti',8,1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Não me assustou',7,1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('É um bom filme de animação',10,2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Mediano',9,2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Um clássico da ficção',4,1);
 
-INSERT INTO tb_user (name, email, password) VALUES ('Bob', 'bob@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
-INSERT INTO tb_user (name, email, password) VALUES ('Ana', 'ana@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
 
-INSERT INTO tb_role (authority) VALUES ('ROLE_VISITOR');
-INSERT INTO tb_role (authority) VALUES ('ROLE_MEMBER');
 
-INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
-INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+
+
