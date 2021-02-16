@@ -7,5 +7,5 @@ import com.crystaldata.movieflix.entities.Genre;
 
 @Repository
 public interface  GenreRepository extends JpaRepository<Genre, Long> {
-	
+
 }

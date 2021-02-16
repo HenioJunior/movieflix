@@ -62,4 +62,9 @@ public class ReviewDTO implements Serializable {
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
+
+	public void setMovieId(long l) {
+		// TODO Auto-generated method stub
+		
+	}
 }
