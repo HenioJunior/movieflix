@@ -20,16 +20,6 @@ Password:123456
 - Spring Boot
 - JPA / Hibernate
 - Maven
-## Front end(Em desenvolvimento)
-- HTML / CSS / JS / TypeScript
-- ReactJS
-- React Native
-- Apex Charts
-- Expo
-## Implantação em produção(Em desenvolvimento)
-- Back end: Heroku
-- Front end web: Netlify
-- Banco de dados: Postgresql
 
 # Como executar o projeto
 
@@ -50,5 +40,4 @@ cd backend
 # Autor
 
 Henio Junior
-
 https://www.linkedin.com/in/henioalcantara
