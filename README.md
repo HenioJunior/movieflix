@@ -34,7 +34,7 @@ Password:123456
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Você deverá usar Java 11 com Spring Boot 2.4.x.
+Pré-requisitos: Você deverá usar o Java 11 com Spring Boot 2.4.x.
 
 ```bash
 # clonar repositório
