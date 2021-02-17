@@ -4,39 +4,40 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotBlank;
 
-import com.crystaldata.movieflix.entities.Movie;
 import com.crystaldata.movieflix.entities.Review;
-import com.crystaldata.movieflix.entities.User;
 
 public class ReviewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	
+
 	@NotBlank(message = "The field cannot be empty")
 	private String text;
-	private String userName;
-	private Long userId;
 	private Long movieId;
-	
+	private Long userId;
+	private String userName;
+	private String userEmail;
+
 	
 	public ReviewDTO() {
 	}
 
-	public ReviewDTO(Long id, @NotBlank(message = "The field cannot be empty") String text, String userName, Long userId, Long movieId) {
+	public ReviewDTO(Long id, String text, Long movieId, Long userId, String userName, String userEmail) {
 		this.id = id;
 		this.text = text;
-		this.userName = userName;
-		this.userId = userId;
 		this.movieId = movieId;
+		this.userId = userId;
+		this.userName = userName;
+		this.userEmail = userEmail;
 	}
-	
+
 	public ReviewDTO(Review entity) {
 		id = entity.getId();
 		text = entity.getText();
-		userName = entity.getUser().getName();
-		userId = entity.getUser().getId();
 		movieId = entity.getMovie().getId();
+		userId = entity.getUser().getId();
+		userName = entity.getUser().getName();
+		userEmail = entity.getUser().getEmail();
 	}
 
 	public Long getId() {
@@ -54,13 +55,13 @@ public class ReviewDTO implements Serializable {
 	public void setText(String text) {
 		this.text = text;
 	}
-			
-	public String getUserName() {
-		return userName;
+
+	public Long getMovieId() {
+		return movieId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setMovieId(Long movieId) {
+		this.movieId = movieId;
 	}
 
 	public Long getUserId() {
@@ -71,16 +72,19 @@ public class ReviewDTO implements Serializable {
 		this.userId = userId;
 	}
 
-	public Long getMovieId() {
-		return movieId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setMovieId(Long movieId) {
-		this.movieId = movieId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public void setMovieId(long l) {
-		// TODO Auto-generated method stub
-		
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 }

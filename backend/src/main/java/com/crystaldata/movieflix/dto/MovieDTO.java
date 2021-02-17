@@ -6,7 +6,6 @@ import java.util.Set;
 
 import com.crystaldata.movieflix.entities.Genre;
 import com.crystaldata.movieflix.entities.Movie;
-import com.crystaldata.movieflix.entities.Review;
 
 public class MovieDTO implements Serializable {
     private static final long serialVersionUID = 1L;

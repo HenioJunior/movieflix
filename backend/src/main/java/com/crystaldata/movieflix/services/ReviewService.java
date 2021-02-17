@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.crystaldata.movieflix.dto.ReviewDTO;
+import com.crystaldata.movieflix.entities.Movie;
 import com.crystaldata.movieflix.entities.Review;
+import com.crystaldata.movieflix.entities.User;
+import com.crystaldata.movieflix.repositories.MovieRepository;
 import com.crystaldata.movieflix.repositories.ReviewRepository;
 import com.crystaldata.movieflix.services.exceptions.ResourcesNotFoundException;
 
@@ -18,6 +21,12 @@ public class ReviewService {
 
 	@Autowired
 	private ReviewRepository repository;
+	
+	@Autowired
+	private MovieRepository movieRepository;
+	
+	@Autowired
+	private AuthService authService;
 	
 	@Transactional(readOnly = true)
 	public List<ReviewDTO> findAll(){
@@ -32,6 +41,23 @@ public class ReviewService {
 		Optional<Review> obj = repository.findById(id);
 		Review entity = obj.orElseThrow(() -> new ResourcesNotFoundException("Review not found"));
 
+		return new ReviewDTO(entity);
+	}
+	
+	@Transactional
+	public ReviewDTO insert(ReviewDTO dto) {
+		Movie movie = movieRepository.getOne(dto.getMovieId());
+		User user = authService.authenticated();
+		
+		authService.validateSelfOrAdmin(user.getId());
+		
+		Review entity = new Review();		
+		entity.setText(dto.getText());
+		entity.setMovie(movie);
+		entity.setUser(user);
+		
+		entity = repository.save(entity);
+		
 		return new ReviewDTO(entity);
 	}
 }
