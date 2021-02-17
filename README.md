@@ -12,7 +12,7 @@ Password:123456
 
 ## Modelo conceitual
 
-![Modelo Conceitual](https://drive.google.com/file/d/1UagP_OaOlOlAJ8yV--AMJdEz6onTuG-y/view?usp=sharing)
+![Modelo Conceitual](https://github.com/HenioJunior/assets/blob/main/modelo_conceitual.png)
 
 # Tecnologias utilizadas
 ## Back end
