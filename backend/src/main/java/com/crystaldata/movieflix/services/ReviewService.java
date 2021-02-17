@@ -11,9 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.crystaldata.movieflix.dto.ReviewDTO;
 import com.crystaldata.movieflix.entities.Movie;
 import com.crystaldata.movieflix.entities.Review;
+import com.crystaldata.movieflix.entities.Role;
 import com.crystaldata.movieflix.entities.User;
 import com.crystaldata.movieflix.repositories.MovieRepository;
 import com.crystaldata.movieflix.repositories.ReviewRepository;
+import com.crystaldata.movieflix.repositories.UserRepository;
+import com.crystaldata.movieflix.services.exceptions.ForbiddenException;
 import com.crystaldata.movieflix.services.exceptions.ResourcesNotFoundException;
 
 @Service
@@ -24,7 +27,7 @@ public class ReviewService {
 	
 	@Autowired
 	private MovieRepository movieRepository;
-	
+			
 	@Autowired
 	private AuthService authService;
 	
@@ -46,18 +49,20 @@ public class ReviewService {
 	
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
+		
 		Movie movie = movieRepository.getOne(dto.getMovieId());
 		User user = authService.authenticated();
-		
-		authService.validateSelfOrAdmin(user.getId());
-		
-		Review entity = new Review();		
+				
+		for (Role role : user.getRoles()) {
+			if (role.getAuthority().equals("ROLE_VISITOR")) {
+				throw new ForbiddenException("Access denied");
+			}
+		}
+		Review entity = new Review();
 		entity.setText(dto.getText());
 		entity.setMovie(movie);
 		entity.setUser(user);
-		
 		entity = repository.save(entity);
-		
 		return new ReviewDTO(entity);
 	}
 }

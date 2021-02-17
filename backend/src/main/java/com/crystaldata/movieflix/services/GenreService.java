@@ -18,19 +18,21 @@ public class GenreService {
 
 	@Autowired
 	private GenreRepository repository;
+			
+	 @Autowired
+	    private AuthService authService;
 	
 	@Transactional(readOnly = true)
 	public List<GenreDTO> findAll(){
-		
-		List<Genre> list = repository.findAll();
+				List<Genre> list = repository.findAll();
 		return list.stream().map(x -> new GenreDTO(x)).collect(Collectors.toList());
 	}
 	
 	@Transactional(readOnly = true)
 	public GenreDTO findById(Long id) {
-		
+		authService.validateSelfOrAdmin(id);
 		Optional<Genre> obj = repository.findById(id);
-		Genre entity = obj.orElseThrow(() -> new ResourcesNotFoundException("Genêro não Encontrado"));
+		Genre entity = obj.orElseThrow(() -> new ResourcesNotFoundException("Genre not found"));
 		
 		return new GenreDTO(entity);
 	}
