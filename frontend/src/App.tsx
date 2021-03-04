@@ -1,5 +1,12 @@
 import React from 'react';
 
-const App = () => <h1>Hello App</h1>
+import './core/assets/styles/custom.scss'
+import './App.scss';
+import Navbar from './core/components/Navbar';
 
+const App = () => {
+  return (
+    <Navbar />
+  );
+}
 export default App;
