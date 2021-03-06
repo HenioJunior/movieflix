@@ -4,7 +4,7 @@ import './styles.scss';
 
 const Navbar = () => (
   <nav className="row bg-primary main-nav">
-    <div className="col-2">
+    <div className="col-11">
       <Link to="/" className="nav-logo-text">
         <h4>MovieFlix</h4>
       </Link>

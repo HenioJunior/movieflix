@@ -1,7 +1,19 @@
 import React from 'react'
+import MovieCard from './components/MovieCard'
+import './styles.scss'
 
 const Catalog = () => (
-<h1>Catalog</h1>
+<div className="catalog-container">
+  <MovieCard />
+  <MovieCard />
+  <MovieCard />
+  <MovieCard />
+  <MovieCard />
+  <MovieCard />
+  <MovieCard />
+  <MovieCard />
+  <MovieCard />
+</div>
 )
 
 export default Catalog;
