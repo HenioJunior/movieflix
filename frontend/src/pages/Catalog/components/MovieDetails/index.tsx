@@ -11,6 +11,7 @@ const MovieDetails = () => {
   const { movieId } = useParams<ParamsType>();
   console.log(movieId);
   return (
+    <>
     <div className="movie-details-container">
       <MovieImage className="movie-details-image" />
       <div>
@@ -28,6 +29,17 @@ const MovieDetails = () => {
         </div>
       </div> 
     </div>
+    <div className="comment-container">
+      
+    </div>
+    <div className="avaliations-container">
+      
+    </div>
+    
+    
+    
+    </>
+    
   );
 };
 
