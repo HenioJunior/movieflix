@@ -15,7 +15,6 @@ import com.crystaldata.movieflix.entities.Role;
 import com.crystaldata.movieflix.entities.User;
 import com.crystaldata.movieflix.repositories.MovieRepository;
 import com.crystaldata.movieflix.repositories.ReviewRepository;
-import com.crystaldata.movieflix.repositories.UserRepository;
 import com.crystaldata.movieflix.services.exceptions.ForbiddenException;
 import com.crystaldata.movieflix.services.exceptions.ResourcesNotFoundException;
 
