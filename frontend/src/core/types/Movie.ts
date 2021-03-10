@@ -24,6 +24,11 @@ export type Reviews = {
   id: number;
   text: string;
   movieId: number;
-  userName: string;
-  userEmail: string;
+  user: User[];
+}
+
+export type User = {
+  id: number;
+  name: string;
+  email: string;
 }

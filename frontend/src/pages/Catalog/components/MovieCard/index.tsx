@@ -6,7 +6,7 @@ type Props = {
   movie: Movie;
 }
 
-const MovieCard = ({movie}: Props) => (
+const MovieCard = ({ movie }: Props) => (
   <div className="card-base border-radius-10 movie-card">
     <div className="movie-image">
       <img src={movie.imgUrl} alt={movie.title} className="movie-card-image" />

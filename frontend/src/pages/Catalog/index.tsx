@@ -25,7 +25,7 @@ const Catalog = () => {
   return (
     <div className="catalog-container">
      {movieResponse?.content.map(movie =>(
-        <Link to="/movies/9" key={movie.id}>
+        <Link to={`/movies/${movie.id}`} key={movie.id}>
           <MovieCard movie={movie} />
         </Link>
       ))}

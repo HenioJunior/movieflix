@@ -1,15 +1,27 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ReactComponent as MovieImage } from '../../../../core/assets/images/movie-image.svg';
+import { Movie } from '../../../../core/types/Movie';
+import { makeRequest } from '../../../../core/utils/request';
 import './styles.scss';
 
 type ParamsType = {
-  movieId:string;
+  movieId: string;
 }
 
 const MovieDetails = () => {
   const { movieId } = useParams<ParamsType>();
-  console.log(movieId);
+  const [movieResponse, setMovieResponse] = useState<Movie>();
+
+  console.log(movieResponse)
+ 
+  useEffect(() => {
+    makeRequest({ url: `/movies/${movieId}` })
+    .then(response => {
+      setMovieResponse(response.data);
+  })
+}, [movieId])
+      
   return (
     <>
     <div className="movie-details-container">
@@ -35,12 +47,7 @@ const MovieDetails = () => {
     <div className="avaliations-container">
       
     </div>
-    
-    
-    
     </>
-    
   );
 };
-
 export default MovieDetails;
