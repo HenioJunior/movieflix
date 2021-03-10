@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { MovieResponse } from '../../core/types/Movies';
 import { makeRequest } from '../../core/utils/request';
 import MovieCard from './components/MovieCard'
 import './styles.scss'
 
 const Catalog = () => {
+
+  const[movieResponse, setMovieResponse] = useState<MovieResponse>();
+  
+  console.log(movieResponse);
+
   useEffect(() => {
     const params = {
       page: 0,
@@ -12,22 +18,18 @@ const Catalog = () => {
     }
 
     makeRequest({url: '/movies', params})
-    .then(response => console.log(response));
+    .then(response => setMovieResponse(response.data));
   }, []);
 
 
   return (
     <div className="catalog-container">
-  <Link to="/movies/1"><MovieCard /></Link>
-  <Link to="/movies/2"><MovieCard /></Link>
-  <Link to="/movies/3"><MovieCard /></Link>
-  <Link to="/movies/4"><MovieCard /></Link>
-  <Link to="/movies/5"><MovieCard /></Link>
-  <Link to="/movies/6"><MovieCard /></Link>
-  <Link to="/movies/7"><MovieCard /></Link>
-  <Link to="/movies/8"><MovieCard /></Link>
-  <Link to="/movies/9"><MovieCard /></Link>
-</div>
+     {movieResponse?.content.map(movie =>(
+        <Link to="/movies/9" key={movie.id}>
+          <MovieCard />
+        </Link>
+      ))}
+    </div>
   );
 }
 
