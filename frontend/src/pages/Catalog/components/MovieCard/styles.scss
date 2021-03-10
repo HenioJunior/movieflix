@@ -1,5 +1,5 @@
 .movie-card {
-  height: 322px;
+  height: 550px;
   width: 270px;
 }
 
@@ -34,4 +34,9 @@
   line-height: 19px;
   letter-spacing: -0.015em;
   color: #FFFFFF;
+}
+
+.movie-card-image {
+  width: 100%;
+  //height: 160px;
 }

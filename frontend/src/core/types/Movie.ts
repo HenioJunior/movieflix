@@ -6,7 +6,7 @@ export type MovieResponse = {
 export type Movie = {
   id: number;
   title: string;
-  subtitle: string;
+  subTitle: string;
   description: string;
   year: string;
   imgUrl: string;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { MovieResponse } from '../../core/types/Movies';
+import { MovieResponse } from '../../core/types/Movie';
 import { makeRequest } from '../../core/utils/request';
 import MovieCard from './components/MovieCard'
 import './styles.scss'
@@ -14,7 +14,7 @@ const Catalog = () => {
   useEffect(() => {
     const params = {
       page: 0,
-      linesPerPage: 5
+      linesPerPage: 10
     }
 
     makeRequest({url: '/movies', params})
@@ -26,7 +26,7 @@ const Catalog = () => {
     <div className="catalog-container">
      {movieResponse?.content.map(movie =>(
         <Link to="/movies/9" key={movie.id}>
-          <MovieCard />
+          <MovieCard movie={movie} />
         </Link>
       ))}
     </div>
