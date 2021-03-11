@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { makeRequest } from '../../core/utils/request';
 import MovieCard from './components/MovieCard'
 import './styles.scss'
 
-const MovieCatalog = () => (
-  <div className="catalog-container">
+const MovieCatalog = () => {
+  useEffect(() => {
+    const params = {
+      page: 0,
+      linesPerPage: 5
+    }
+
+    makeRequest({url: '/movies', params})
+    .then(response => console.log(response));
+  }, []);
+
+
+
+  return (
+    <div className="catalog-container">
     <Link to="/movies/1"><MovieCard /></Link>
     <Link to="/movies/2"><MovieCard /></Link>
     <Link to="/movies/3"><MovieCard /></Link>
@@ -15,6 +29,8 @@ const MovieCatalog = () => (
     <Link to="/movies/8"><MovieCard /></Link>
     <Link to="/movies/9"><MovieCard /></Link>
   </div>
-)
+  )
+
+}
 
 export default MovieCatalog;
