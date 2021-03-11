@@ -7,8 +7,8 @@ const Home = () => (
   <div className="home-container">
 
     <div className="home-info">
-      <h1 className="class-title">Avalie Filmes</h1>
-      <p>
+      <h1 className="home-info-title">Avalie Filmes</h1>
+      <p className="home-info-subtitle">
         Diga o que você achou do seu filme favorito
         </p>
       <MainImage className="main-image" />

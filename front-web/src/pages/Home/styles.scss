@@ -1,26 +1,27 @@
 .home-container {
   display: flex;
+  padding: 42px 40px 134px 140px;
   color: #FFF;
 }
 
 .home-info {
-  padding-left: 140px;
+  padding-right: 130px;
   padding-top: 74px;
 }
 
-.text-title {
+.home-info-title {
   font-size: 55px;
   line-height: 75px;
   letter-spacing: -0.015em;
 }
 
-.text-subtitle {
+.home-info-subtitle {
   font-size: 24px;
   line-height: 33px;
   letter-spacing: -0.015em;
   color: #F2F2F2;
-  margin-top: 100px;
-  margin-bottom: 70px;
+  padding-top: 19px;
+  padding-bottom: 52px;
 }
 
 .auth-content {
