@@ -1,5 +1,5 @@
 import React from 'react';
-import { Movie } from '../../../../core/types/Movies';
+import { Movie } from '../../../../core/types/Movie';
 import './styles.scss';
 
 type Props = {
@@ -25,4 +25,5 @@ const MovieCard = ({ movie }: Props) => (
     </div>
   </div>
 );
+
 export default MovieCard;
