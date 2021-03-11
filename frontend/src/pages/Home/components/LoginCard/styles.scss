@@ -34,8 +34,6 @@ input:focus {
   outline: 0;
 }
 
-::-webkit-input-placeholder  { color: #9E9E9E; }
-
 .button-content{
   display: flex;
   margin-top: 150px;
@@ -67,29 +65,4 @@ input:focus {
   justify-content: center;
   background-color:#937d1c;
   border-radius: 0px 10px 10px 0px;
-}
-.login-alert{
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f8d7da;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-}
-.error-feedback{
-  font-weight: bold;
-  width: 100%;
-  margin-top: .25rem;
-  font-size: 80%;
-  color: #dc3545;
-  display: block;
-}
-.is-invalid{
-  border-color: #dc3545;
-  border-width: 2px;
-  padding-right: calc(1.5em + .75rem);
-  background-repeat: no-repeat;
-  background-position: right calc(.375em + .1875rem) center;
-  background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 }

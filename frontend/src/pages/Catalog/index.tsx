@@ -1,34 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { MovieResponse } from '../../core/types/Movie';
-import { makeRequest } from '../../core/utils/request';
-import MovieCard from './components/MovieCard'
+import MovieCard from './components/MovieCard';
+
 import './styles.scss'
 
 const Catalog = () => {
 
-  const[movieResponse, setMovieResponse] = useState<MovieResponse>();
-  
-  console.log(movieResponse);
-
-  useEffect(() => {
-    const params = {
-      page: 0,
-      linesPerPage: 10
-    }
-
-    makeRequest({url: '/movies', params})
-    .then(response => setMovieResponse(response.data));
-  }, []);
-
+ useEffect(() => {
+  fetch('http://localhost:3000/movies')
+  .then(response => response.json())
+  .then(response => console.log(response))
+ }, [])
 
   return (
     <div className="catalog-container">
-     {movieResponse?.content.map(movie =>(
-        <Link to={`/movies/${movie.id}`} key={movie.id}>
-          <MovieCard movie={movie} />
-        </Link>
-      ))}
+     <Link to="/movies/1"><MovieCard /></Link>
+     <Link to="/movies/1"><MovieCard /></Link>
+     <Link to="/movies/1"><MovieCard /></Link>
+     <Link to="/movies/1"><MovieCard /></Link>
+     <Link to="/movies/1"><MovieCard /></Link>
+     
+       
     </div>
   );
 }
