@@ -1,0 +1,91 @@
+.movie-details-container {
+  display: flex;
+  margin-top: 40px;
+  margin-left: 135px;
+  width:1170px;
+  height: 374px;
+  background: #6C6C6C;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.movie-details-image {
+  width: 526px;
+  height: 320px;
+  margin-left: 20px;
+  margin-top: 24px;
+}
+
+.movie-details-title {
+  font-size: 36px;
+  line-height: 49px;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+  margin-top: 24px;
+  margin-left: 57px;
+}
+
+.movie-description-year {
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: -0.015em;
+  color: #FFC700;
+  margin-left: 57px;
+}
+
+.movie-description-subtitle {
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+  margin-left: 57px;
+  margin-bottom: 9px;
+}
+
+.movie-details-description {
+  width: 541px;
+  height: 204px;
+  margin-top: 5px;
+  margin-left: 30px;
+  border: 1px solid #E1E1E1;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding-top: 10px;
+  margin-left: 57px;
+
+}
+
+.movie-description-text {
+  width:494px;
+  height:191px;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: justify;
+  letter-spacing: -0.015em;
+  color: #9E9E9E;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.comment-container {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 135px;
+  width:1170px;
+  height: 165px;
+  background: #6C6C6C;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.avaliations-container {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 135px;
+  width:1170px;
+  height: 578px;
+  background: #6C6C6C;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+} 
