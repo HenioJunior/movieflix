@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ReactComponent as MovieImage } from '../../../../core/assets/images/movie-image.svg';
+import { Movie } from '../../../../core/types/Movies';
+import { makeRequest } from '../../../../core/utils/request';
 import './styles.scss';
 
 type ParamsType = {
   movieId: string;
 }
 
+
 const MovieDetails = () => {
   const { movieId } = useParams<ParamsType>();
-  console.log(movieId);
+  const [movie, setMovie] = useState<Movie>();
+  
+  useEffect(() => {
+    makeRequest({ url: `/movies/${movieId}` })
+            .then(response => setMovie(response.data))
+          }, [movieId]);
+  
   return (
     <>
     <div className="movie-details-container">
-      <MovieImage className="movie-details-image" />
+    <img src={movie?.imgUrl} alt={movie?.title} className="movie-details-image" />
       <div>
-        <h1 className="movie-details-title">O retorno do rei</h1>
-        <span className="movie-description-year">2003</span>
-        <h3 className="movie-description-subtitle">O olho do inimigo esta se movendo</h3>
+        <h1 className="movie-details-title">{movie?.title}</h1>
+        <span className="movie-description-year">{movie?.year}</span>
+        <h3 className="movie-description-subtitle">{movie?.subTitle}</h3>
         <div className="movie-details-description">
           <p className="movie-description-text">
-            O confronto final entre as forças do bem e do mal que lutam pelo controle
-            do futuro da Terra Média se aproxima. Sauron planeja um grande ataque a Minas Tirith,
-            capital de Gondor, o que faz com que Gandalf e Pippin partam para o local na intenção de ajudar
-            a resistência. Um exército é reunido por Theoden em Rohan, em mais uma tentativa de deter as forças
-            de Sauron. Enquanto isso, Frodo, Sam e Gollum seguem sua viagem rumo à Montanha da Perdição para destruir o anel.
+           {movie?.synopsis}
           </p>
         </div>
       </div>
