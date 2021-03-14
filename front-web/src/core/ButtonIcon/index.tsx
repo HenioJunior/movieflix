@@ -15,7 +15,6 @@ const ButtonIcon = ({ text }: Props) => (
       <ArrowIcon />
     </div>
   </div>
-
 );
 
 export default ButtonIcon;

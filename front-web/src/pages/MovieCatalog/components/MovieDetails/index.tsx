@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ReactComponent as MovieImage } from '../../../../core/assets/images/movie-image.svg';
 import { Movie } from '../../../../core/types/Movies';
 import { makeRequest } from '../../../../core/utils/request';
 import './styles.scss';
