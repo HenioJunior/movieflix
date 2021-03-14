@@ -9,7 +9,7 @@ type ParamsType = {
 }
 
 
-const MovieDetails = () => {
+const MovieInfo = () => {
   const { movieId } = useParams<ParamsType>();
   const [movie, setMovie] = useState<Movie>();
    
@@ -20,27 +20,21 @@ const MovieDetails = () => {
   
   return (
     <>
-    <div className="movie-details-container">
-    <img src={movie?.imgUrl} alt={movie?.title} className="movie-details-image" />
+    <div className="movie-info-container">
+    <img src={movie?.imgUrl} alt={movie?.title} className="movie-info-image" />
       <div>
-        <h1 className="movie-details-title">{movie?.title}</h1>
-        <span className="movie-description-year">{movie?.year}</span>
-        <h3 className="movie-description-subtitle">{movie?.subTitle}</h3>
-        <div className="movie-details-description">
-          <p className="movie-description-text">
+        <h1 className="movie-info-title">{movie?.title}</h1>
+        <span className="movie-info-year">{movie?.year}</span>
+        <h3 className="movie-info-subtitle">{movie?.subTitle}</h3>
+        <div className="movie-info-description">
+          <p className="movie-info-text">
            {movie?.synopsis}
           </p>
         </div>
       </div>
     </div>
-    <div className="comment-container">
-
-    </div>
-    <div className="avaliations-container">
-
-    </div>
   </>
   );
 };
 
-export default MovieDetails;
+export default MovieInfo;

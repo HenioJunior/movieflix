@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './core/components/Navbar';
-import MovieDetails from './pages/MovieCatalog/components/MovieDetails';
-import MovieCatalog from './pages/MovieCatalog';
+import MovieDetails from './pages/Catalog/components/MovieDetails';
+import MovieCatalog from './pages/Catalog';
 import Home from './pages/Home';
 
 const Routes = () => (
