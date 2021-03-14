@@ -1,6 +1,6 @@
 import React from 'react'
 import { ReactComponent as MainImage } from '../../core/assets/images/main-image.svg';
-import AuthCard from './components/AuthCard';
+import Login from './components/Login';
 import './styles.scss';
 
 const Home = () => (
@@ -11,10 +11,10 @@ const Home = () => (
       <p className="home-info-subtitle">
         Diga o que você achou do seu filme favorito
         </p>
-      <MainImage className="main-image" />
+      <MainImage className="home-image" />
     </div>
-    <div className="auth-content">
-      <AuthCard />
+    <div className="home-login">
+      <Login />
     </div>
   </div>
 );

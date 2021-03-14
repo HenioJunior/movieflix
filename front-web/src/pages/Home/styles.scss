@@ -1,44 +1,30 @@
 .home-container {
   display: flex;
-  padding: 42px 40px 134px 140px;
-  color: #FFF;
-}
-
-.home-info {
-  padding-right: 130px;
-  padding-top: 74px;
+  padding: 58px 118px 69px 144px;
+  color: #FFFFFF;
 }
 
 .home-info-title {
+  margin-top: 17px;
   font-size: 55px;
   line-height: 75px;
   letter-spacing: -0.015em;
 }
 
 .home-info-subtitle {
+  padding-top: 19px;
+  padding-bottom: 52px;
   font-size: 24px;
   line-height: 33px;
   letter-spacing: -0.015em;
   color: #F2F2F2;
-  padding-top: 19px;
-  padding-bottom: 52px;
 }
 
-.auth-content {
-  padding: 40px 40px 40px 290px;
-
+.home-image {
+  width: 414px;
+  height: 307px;
 }
 
-.auth-title {
-  text-align: center;
-  padding-top: 95px;
-  font-size: 48px;
-  font-weight: normal;
-  line-height: 65px;
-  letter-spacing: -0.015em;
-  text-transform: uppercase;
+.home-login {
+  margin-left: 150px;
 }
-
-.main-image {
-  width: 100%;
-} 
