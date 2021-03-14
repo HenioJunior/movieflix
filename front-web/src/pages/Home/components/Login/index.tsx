@@ -1,7 +1,9 @@
 import { truncate } from 'node:fs';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
 import ButtonIcon from '../../../../core/ButtonIcon';
+import { saveSessionData } from '../../../../core/utils/auth';
 import { makerLogin } from '../../../../core/utils/request';
 import './styles.scss';
 
@@ -13,11 +15,14 @@ type FormData = {
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const [hasError, setHasError] = useState(false);
+  const history = useHistory();
 
   const onSubmit = (data: FormData) => {
     makerLogin(data)
       .then(response => {
         setHasError(false);
+        saveSessionData(response.data);
+        history.push('/movies');
       })
       .catch(() => {
         setHasError(true);
