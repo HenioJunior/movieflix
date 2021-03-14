@@ -1,10 +1,9 @@
-import { truncate } from 'node:fs';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router';
-import ButtonIcon from '../../../../core/ButtonIcon';
-import { saveSessionData } from '../../../../core/utils/auth';
-import { makerLogin } from '../../../../core/utils/request';
+import ButtonIcon from 'core/ButtonIcon';
+import { saveSessionData } from 'core/utils/auth';
+import { makerLogin } from 'core/utils/request';
 import './styles.scss';
 
 type FormData = {

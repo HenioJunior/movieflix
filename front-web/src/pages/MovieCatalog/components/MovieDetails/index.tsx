@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Movie } from '../../../../core/types/Movies';
-import { makeRequest } from '../../../../core/utils/request';
+import { Movie } from 'core/types/Movies';
+import { makeRequest } from 'core/utils/request';
 import './styles.scss';
 
 type ParamsType = {
@@ -12,11 +12,11 @@ type ParamsType = {
 const MovieDetails = () => {
   const { movieId } = useParams<ParamsType>();
   const [movie, setMovie] = useState<Movie>();
-  
+   
   useEffect(() => {
     makeRequest({ url: `/movies/${movieId}` })
             .then(response => setMovie(response.data))
-          }, [movieId]);
+    }, [movieId]);
   
   return (
     <>
