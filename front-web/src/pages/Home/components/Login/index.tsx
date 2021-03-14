@@ -1,10 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import ButtonIcon from '../../../../core/ButtonIcon';
+import { makerLogin } from '../../../../core/utils/request';
 import './styles.scss';
 
 type FormData = {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -13,6 +14,7 @@ const Login = () => {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
+    makerLogin(data);
   }
 
   return (
@@ -23,7 +25,7 @@ const Login = () => {
           type="email"
           className="input-email form-control border-radius-10"
           placeholder="Email"
-          name="email"
+          name="username"
           ref={register}
         />
         <input

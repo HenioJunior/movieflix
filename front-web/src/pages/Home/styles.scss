@@ -1,7 +1,8 @@
 .home-container {
   display: flex;
-  padding: 58px 118px 69px 144px;
+  padding: 58px 118px 69px 0;
   color: #FFFFFF;
+  justify-content: center;
 }
 
 .home-info-title {
