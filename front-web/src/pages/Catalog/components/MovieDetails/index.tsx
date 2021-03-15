@@ -3,8 +3,14 @@ import './styles.scss';
 import MovieInfo from './components/MovieInfo';
 import Comment from './components/Comment';
 import Review from './components/Review';
+import { useParams } from 'react-router';
+
+type ParamsType = {
+  movieId: string;
+}
 
 const MovieDetails = () => {
+  const { movieId } = useParams<ParamsType>();
 
   return (
     <div>
@@ -12,7 +18,7 @@ const MovieDetails = () => {
         <MovieInfo />
       </div>
       <div>
-        <Comment />
+        <Comment  id={movieId}/>
       </div>
       <div>
         <Review />
