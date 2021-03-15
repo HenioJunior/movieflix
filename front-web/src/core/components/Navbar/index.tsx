@@ -2,16 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 
-const Navbar = () => (
-  <nav className="row bg-primary main-nav">
-    <div className="col-11">
-      
-    <Link to="/" className="nav-logo-text">
-        <h4>MovieFlix</h4>
-    </Link>
-      
-    </div>
-  </nav>
-);
+type Props = {
+  children?: React.ReactNode;
+}
 
-export default Navbar; 
+const Navbar = ({ children }: Props) => {
+  return (
+    <nav className="navbar-main">
+      <Link to="/" className="navbar-logo-text">
+        <h4>MovieFlix</h4>
+      </Link>
+      {children}
+    </nav>
+
+  )
+};
+
+export default Navbar;

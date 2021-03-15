@@ -20,3 +20,7 @@ export const getSessionData = () => {
   const parsedSessionData = JSON.parse(sessionData);
   return parsedSessionData as LoginResponse;
 }
+
+export const logout = () => {
+  localStorage.removeItem('authData');
+}

@@ -6,6 +6,7 @@ import MovieCard from './components/MovieCard'
 import './styles.scss'
 import MovieCardLoader from './components/Loaders/MovieCardLoader';
 import Pagination from './components/Pagination';
+import Navbar from 'core/components/Navbar';
 
 const Catalog = () => {
   const [movieResponse, setMovieResponse] = useState<MovieResponse>();
@@ -25,6 +26,8 @@ const Catalog = () => {
   }, [activePage]);
 
   return (
+    <>
+    <Navbar />
     <div className="catalog-container">
       <div className="catalog-search card-base border-radius-10">
 
@@ -46,6 +49,7 @@ const Catalog = () => {
           />
       )}   
     </div>
+    </>
   )
 
 }

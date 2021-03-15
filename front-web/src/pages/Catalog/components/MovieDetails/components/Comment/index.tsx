@@ -30,7 +30,6 @@ const Comment = ({ id }: ParamsType) => {
       })
   }
 
-
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="comment-container">
