@@ -8,7 +8,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <div>
+      <div className="movie-details-container">
         <MovieInfo />
       </div>
       <div>

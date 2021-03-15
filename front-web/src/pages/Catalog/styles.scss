@@ -1,7 +1,18 @@
 .catalog-container {
   margin-top: 26px;
+  padding: 0 135px 72px 135px;
+}
+
+.catalog-search {
+  padding: 0 40px 50px 40px;
+  width: 1656px;
+  height: 60px;
+  display: flex;
+} 
+
+.catalog-movies {
+  margin-top: 39px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
   grid-gap: 31px 27px;
-  justify-content: space-between;
 }

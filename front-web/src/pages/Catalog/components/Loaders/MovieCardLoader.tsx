@@ -4,7 +4,7 @@ import { generateList } from "core/utils/list";
 import ContentLoader from "react-content-loader";
 
 const MovieCardLoader = () => {
-  const loaderItems = generateList(10);
+  const loaderItems = generateList(3);
   return (
     <>
       {loaderItems.map(item => (
