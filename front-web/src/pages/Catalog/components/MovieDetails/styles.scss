@@ -1,48 +1,52 @@
-.avaliations-container{
-  width: 1170px;
-  height: 578px;
-  padding-top: 20px;
-  margin-top: 15px;
-  margin-left: 135px;
+.movie-details-container {
+  padding: 35px 135px 15px 135px;
+}
+
+.movie-details-save-review-content {
   background: #6C6C6C;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-}
-
-.avaliations-img{
-  margin-top: 20px;
-  margin-left: 35px;
-  margin-bottom: 10px;
-}
-
-.avaliations-name{
+  padding: 16px 22px 17px 17px;
   margin-top: 15px;
-  margin-left: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: -0.015em;
-  color: #FFFFFF;
+  text-align: center;
 }
 
-.avaliations-form{
-  width: 1131px;
-  height: 50px;
-  margin-left: 15px;
-  border: 1px solid #E1E1E1;
-  box-sizing: border-box;
-  border-radius: 20px;
-}
-
-.avaliations-text{
-  width: 1090px;
-  height: 50px;
-  margin-top: 15px;
-  margin-left: 20px;
+.movie-details-save-review-input {
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-  text-align: justify;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.015em;  
   color: #9E9E9E;
+  resize: none;
+}
+
+.movie-details-save-review-btn {
+  border-radius: 10px;
+  height: 50px;
+  width: 334px;
+  margin-top: 12px;
+ 
+}
+
+.movie-details-save-review-btn-text {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #000000;
+  margin: 0px !important;
+}
+
+.movie-details-save-review-btn-loading {
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-details-reviews-list-content {
+  background: #6C6C6C;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 15px 22px 20px 17px;
+  margin-top: 15px;
 }

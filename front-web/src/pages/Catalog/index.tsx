@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { MovieResponse } from 'core/types/Movies';
+import { MovieResponse } from 'core/types/types';
 import { makeRequest } from 'core/utils/request';
-import MovieCard from './components/MovieCard'
-import './styles.scss'
-import MovieCardLoader from './components/Loaders/MovieCardLoader';
+import MovieCardLoader from './components/Loaders/MovieLoader';
 import Pagination from './components/Pagination';
 import Navbar from 'core/components/Navbar';
+import './styles.scss'
+import MovieCard from './components/MovieCard';
 
 const Catalog = () => {
   const [movieResponse, setMovieResponse] = useState<MovieResponse>();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Movie } from 'core/types/Movies';
+import { Movie } from 'core/types/types';
 import './styles.scss';
 
 type Props = {
