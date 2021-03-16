@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import MovieCardDetails from './components/MovieCardDetails/';
 import ReviewCard from './components/ReviewCard';
 import { useForm } from 'react-hook-form';
+import MovieDetailsLoaders from '../Loaders/MovieDetailsLoader';
 
 type ParamsType = {
     movieId: string;
@@ -61,7 +62,10 @@ const MovieDetails = () => {
             <div className="movie-details-container">
 
                 <div className="movie-details-content">
-                    {(!isLoading && movie) &&
+                    {isLoading ?
+                        <MovieDetailsLoaders />
+                        :
+                        movie &&
                         <>
                             <MovieCardDetails movie={movie} />
                             <form

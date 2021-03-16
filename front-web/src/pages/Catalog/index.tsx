@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import MovieCard from './components/MovieCard';
 import Pagination from './components/Pagination';
 import Navbar from 'core/components/Navbar';
+import MovieCardLoader from './components/Loaders/MovieCardLoader';
 
 const Catalog = () => {
   const [movies, setMovies] = useState<MovieResponse>();
@@ -46,7 +47,7 @@ const Catalog = () => {
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className="movies-container">
         <div className="movies-header">
           <Select
@@ -69,25 +70,17 @@ const Catalog = () => {
             })}
           />
         </div>
-        {isLoading ?
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border btn-home-spinner" role="status">
-              <span className="sr-only ">Loading...</span>
-            </div>
-          </div>
-          :
+        {isLoading ? <MovieCardLoader /> :
           <>
             <div className="movies-list-content">
-              {
-                movies?.content.map(movie =>
-                  <Link to={`/movies/${movie.id}`} key={movie.id}>
-                    <MovieCard movie={movie} />
-                  </Link>
-                )
+              {movies?.content.map(movie =>
+                <Link to={`/movies/${movie.id}`} key={movie.id}>
+                  <MovieCard movie={movie} />
+                </Link>
+              )
               }
             </div>
-            {
-              movies &&
+            {movies &&
               <Pagination
                 activePage={activePage}
                 totalPages={movies.totalPages}
