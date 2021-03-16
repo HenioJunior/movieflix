@@ -1,34 +1,35 @@
 export type MovieResponse = {
   content: Movie[];
-  totalPages: number;   
+  totalPages: number;
+}
+
+export type ReviewResponse = {
+  contentReview: Review[];
 }
 
 export type Movie = {
   id: number;
-  title: string;
+  title:string;
   subTitle: string;
-  description: string;
-  year: string;
+  year: number;
   imgUrl: string;
-  synopsis: string;
-  genre: Genre[];
-  reviews: Reviews[];
+  synopsis:string;
+  genreId: number | string;
+  reviews: Review[];
 }
 
-export type Genre = {
-  id: number;
-  name: string;
-}
-
-export type Reviews = {
+export type Review = {
   id: number;
   text: string;
   movieId: number;
-  user: User[];
+  userId: number;
+  userName: string;
+  userEmail: string;
+  //user?: object;
 }
 
-export type User = {
-  id: number;
-  name: string;
-  email: string;
+export type Genre={
+  id: number,
+  name: string,
+  movies?: Movie[],
 }
