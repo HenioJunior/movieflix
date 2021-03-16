@@ -1,57 +1,103 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { makePrivateRequest } from 'core/utils/request';
+import { Genre, MovieResponse } from 'core/types/types';
+import Select from 'react-select'
+import './styles.scss';
 import { Link } from 'react-router-dom';
-import { MovieResponse } from 'core/types/types';
-import { makeRequest } from 'core/utils/request';
-import MovieCardLoader from './components/Loaders/MovieLoader';
+import MovieCard from './components/MovieCard';
 import Pagination from './components/Pagination';
 import Navbar from 'core/components/Navbar';
-import './styles.scss'
-import MovieCard from './components/MovieCard';
 
 const Catalog = () => {
-  const [movieResponse, setMovieResponse] = useState<MovieResponse>();
+  const [movies, setMovies] = useState<MovieResponse>();
   const [isLoading, setIsLoading] = useState(false);
-  const [activePage, setActivePage] = useState(1);
+  const [isLoadingGenre, setIsLoadingGenre] = useState(false);
+  const [genres, SetGenres] = useState<Genre[]>();
+  const [activePage, setActivePage] = useState(0);
+  const [genre, setGenre] = useState();
 
   useEffect(() => {
+    setIsLoading(true);
     const params = {
       page: activePage,
-      linesPerPage: 10
+      size: 8,
+      genreId: genre
     }
+    makePrivateRequest({ url: '/movies', params })
+      .then(res => {
+        setMovies(res.data);
+        setIsLoading(false);
+      })
+      .catch(err => console.log(err));
+  }, [activePage, genre]);
 
-    setIsLoading(true);
-    makeRequest({ url: '/movies', params })
-      .then(response => setMovieResponse(response.data))
-      .finally(() => { setIsLoading(false);})
-  }, [activePage]);
+  useEffect(() => {
+    setIsLoadingGenre(true);
+    makePrivateRequest({ url: '/genres' })
+      .then(res => SetGenres(res.data.concat({ name: 'Todos', id: 0 })))
+      .catch(err => console.log(err))
+      .finally(() => setIsLoadingGenre(false));
+  }, []);
+
+  const handleGenre = (genre: any) => {
+    setGenre(genre.id);
+    setActivePage(0);
+  }
 
   return (
     <>
     <Navbar />
-    <div className="catalog-container">
-      <div className="catalog-search card-base border-radius-10">
-
-      </div>
-      <div className="catalog-movies">
-      {isLoading ? <MovieCardLoader /> : (
-        movieResponse?.content.map(movie => (
-          <Link to={`/movies/${movie.id}`} key={movie.id}>
-             <MovieCard movie={movie} />
-          </Link>
-        ))
-      )}
-      </div>
-      {movieResponse && (
-        <Pagination
-          totalPages={movieResponse?.totalPages}
-          activePage={activePage}
-          onChange={page => setActivePage(page)}
+      <div className="movies-container">
+        <div className="movies-header">
+          <Select
+            options={genres}
+            name="genres"
+            classNamePrefix="movies-header-selected"
+            isLoading={isLoadingGenre}
+            getOptionLabel={(option: Genre) => option.name}
+            getOptionValue={(option: Genre) => String(option.id)}
+            inputId="genres"
+            onChange={value => handleGenre(value)}
+            theme={theme => ({
+              ...theme,
+              borderRadius: 0,
+              colors: {
+                ...theme.colors,
+                primary25: 'rgba(255, 199, 0, 0.2)',
+                primary: '#FFC700',
+              }
+            })}
           />
-      )}   
-    </div>
+        </div>
+        {isLoading ?
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border btn-home-spinner" role="status">
+              <span className="sr-only ">Loading...</span>
+            </div>
+          </div>
+          :
+          <>
+            <div className="movies-list-content">
+              {
+                movies?.content.map(movie =>
+                  <Link to={`/movies/${movie.id}`} key={movie.id}>
+                    <MovieCard movie={movie} />
+                  </Link>
+                )
+              }
+            </div>
+            {
+              movies &&
+              <Pagination
+                activePage={activePage}
+                totalPages={movies.totalPages}
+                onChange={page => setActivePage(page)}
+              />
+            }
+          </>
+        }
+      </div>
     </>
-  )
-
+  );
 }
-
 export default Catalog;
